@@ -1,0 +1,45 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="page_center">
+        <p>ORDER</p>
+    </div>
+    <div id="rectangle"></div>
+    <div class="orders_page_rectangle"></div>
+    <ul class="profile_page_button">
+        <li><a href="{% url 'profile' %}">
+            <button class="button_one">Brief</button>
+        </a></li>
+        {% if user.is_superuser or user.is_staff %}
+            <li><a href="{% url 'admin:index' %}">
+                <button class="button_admin">Admin</button>
+            </a></li>
+            <li><a href="{% url 'orders' %}">
+                <button style="margin-top:-360px" class="button_two">Orders</button>
+            </a></li>
+            <li><a href="{% url 'logout' %}">
+                <button style="margin-top:-330px" class="button_three">Log out</button>
+            </a></li>
+        {% else %}
+            <li><a href="{% url 'orders' %}">
+                <button class="button_two">Orders</button>
+            </a></li>
+            <li><a href="{% url 'logout' %}">
+                <button class="button_three">Log out</button>
+            </a></li>
+        {% endif %}
+    </ul>
+    <p class="title_orders_page">THE LAST ORDER</p>
+    {% if data.basket_history %}
+        <p class="description_orders_page">
+            Order date: {{ data.basket_history.order_date }}<br>
+            Order step: {{ data.get_status_display }}<br>
+            Total price: {{ data.basket_history.total_price }}$<br>
+        </p>
+    {% else %}
+        <p class="description_orders_page" style="text-align:center">You haven't placed any orders yet.</p>
+    {% endif %}
+{% endblock %}
