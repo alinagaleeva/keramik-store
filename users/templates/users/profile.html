@@ -1,0 +1,23 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="page_center">
+        <p>HI {{ user.first_name }}</p>
+    </div>
+    <div id="rectangle"></div>
+    <img class="brief_profile" src="{% static 'main/img/cups_table.jpg' %}">
+    <ul class="profile_page_button">
+        <li><a href="{% url 'profile' %}"><button class="button_one">Brief</button></a></li>
+        {% if user.is_superuser or user.is_staff %}
+            <li><a href="{% url 'admin:index' %}"><button class="button_admin">Admin</button></a></li>
+            <li><a href="{% url 'orders' %}"><button style="margin-top:-360px" class="button_two">Orders</button></a></li>
+            <li><a href="{% url 'logout' %}"><button style="margin-top:-330px" class="button_three">Log out</button></a></li>
+        {% else %}
+            <li><a href="{% url 'orders' %}"><button class="button_two">Orders</button></a></li>
+            <li><a href="{% url 'logout' %}"><button class="button_three">Log out</button></a></li>
+        {% endif %}
+    </ul>
+{% endblock %}
