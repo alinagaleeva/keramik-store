@@ -1,0 +1,35 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}bag{% endblock %}
+
+{% block content %}
+    <div class="page_center">
+        <p>BAG</p>
+    </div>
+    <ul class="block-list">
+        <li class="rectangle_one"></li>
+        <li class="rectangle_four">{% if bags  %}<p class="bag_page_total">TOTAL</p><p class="bag_page_total_price">{{ bags.total_sum }}$</p>{% endif %}</li>
+        <li class="rectangle_five">{% if bags  %}<div class="next_shipping"><a href="{% url 'shipping' %}"><button class="next__bag">next</button></a></div>{% endif %}</li>
+    </ul>
+    <ul class="block-list bag_page_button">
+        <li><a href="{% url 'bag' %}"><button class="button_one">Bag</button></a></li>
+    </ul>
+
+    {% if bags  %}
+        <ul class="block-list bag_page_button">
+            <li><a href="{% url 'shipping' %}"><button style="color:rgb(118, 116, 111)" class="button_two">Shipping</button></a></li>
+        </ul>
+        {% for bag in bags %}
+            <div class="bag_page_plate">
+                <ul>
+                    <li><img class="plate" src="{{ bag.product.image_main.url }}"><p>{{ bag.product.name }}<a href="{% url 'bag_remove' bag.id %}"><i class="fa-solid fa-xmark"></i></a><br>{{ bag.quantity }} x {{ bag.product.price }}$<a href="{% url 'bag_plus' bag.id %}"><i class="fa-solid fa-plus"></i></a><a class="minus" href="{% url 'bag_minus' bag.id %}"><i class="fa-solid fa-minus"></i></a></p></li>
+                </ul>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="message_bag">
+            <p>Your cart is currently empty.</p>
+        </div>
+    {% endif %}
+{% endblock %}

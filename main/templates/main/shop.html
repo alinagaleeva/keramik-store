@@ -1,0 +1,45 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}shop{% endblock %}
+
+{% block content %}
+    <div class="page_center">
+        <p>SHOP</p>
+    </div>
+    <div id="rectangle_shop"></div>
+    {% for product in products %}
+        {% if product.name == "GREEN CUP" %}
+            <div class="container" style="background-image:url({{ product.image_addition.url }}); margin-left: 790px">
+                <a href="{% url 'plate_page' product.id %}">
+                    <div class="overlay" style="background-image: url({{ product.image_main.url }})"></div>
+                    <p class="name_overlay" style="margin-left: -260px">{{ product.name }}</p>
+                </a>
+            </div>
+        {% else %}
+            <div class="container" style="background-image:url({{ product.image_addition.url }})">
+                <a href="{% url 'plate_page' product.id %}">
+                    <div class="overlay" style="background-image: url({{ product.image_main.url }})"></div>
+                    <p class="name_overlay">{{ product.name }}</p>
+                </a>
+            </div>
+        {% endif %}
+    {% endfor %}
+    <footer>
+        <ul class="ending_about">
+            <li class="rectangle_first">
+                <p style="margin-top:25px">
+                    KERAMIK<br>
+                    123 Demo Street<br>
+                    Moscow, MOW<br>
+                    +7(999) 999-999
+                </p>
+            </li>
+            <li class="rectangle_second"><p>KERAMIK 2023</p></li>
+            <li class="rectangle_third"><p>RU</p></li>
+            <li class="rectangle_fourth"><p>EN</p></li>
+            <li class="rectangle_fifth"><p>INSTAGRAM</p></li>
+            <li class="rectangle_sixth"><p>FACEBOOK</p></li>
+        </ul>
+    </footer>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="page_center">
+        <p>{{ product.name }}</p>
+    </div>
+    <ul class="block">
+        <li class="rectangle_one"></li>
+        <li class="rectangle_two"></li>
+        <li class="rectangle_three"></li>
+    </ul>
+    <img class="plate_img_plate_page" src="{{ product.image_main.url }}">
+    <p class="title_plate_page">
+        {{ product.name }}<br>
+        {{ product.price }}$
+    </p>
+    <p class="description_plate_page">
+        {{ product.description }}
+    </p>
+    <a href="{% url 'bag_add' product.id %}"><button class='button_plate_page' type="button">add to bag</button></a>
+{% endblock %}

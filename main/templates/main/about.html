@@ -1,0 +1,39 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+    <div class="page_center">
+        <p>BLOG</p>
+    </div>
+    <div class="text_blog">
+        <p class="introduction">Hello,</p>
+        <img class='plate_blog' src="{% static 'main/img/shelves-of-pottery.jpg' %}">
+        <div class="story">
+            <p>
+                We are inspired by Japanese art of<br>
+                repairing broken pottery. Japanese<br>
+                philosophy of an embracing of the <br>
+                flawed or imperfect.
+            </p>
+        </div>
+    </div>
+    <footer>
+        <ul class="ending_about">
+            <li class="rectangle_first">
+                <p style="margin-top:25px">
+                    KERAMIK<br>
+                    123 Demo Street<br>
+                    Moscow, MOW<br>
+                    +7(999) 999-999
+                </p>
+            </li>
+            <li class="rectangle_second"><p>KERAMIK 2023</p></li>
+            <li class="rectangle_third"><p>RU</p></li>
+            <li class="rectangle_fourth"><p>EN</p></li>
+            <li class="rectangle_fifth"><p>INSTAGRAM</p></li>
+            <li class="rectangle_sixth"><p>FACEBOOK</p></li>
+        </ul>
+    </footer>
+{% endblock %}

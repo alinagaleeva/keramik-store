@@ -1,0 +1,49 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <ul class="blocks_index">
+        <li class="rectangle_first"><p>MORE PLATES</p></li>
+        <li class='rectangle_second'><img src="{% static 'main/img/minimalist.jpg' %}"></li>
+        <li class="rectangle_third"><a href="{% url 'shop' %}"><p>SHOP<i class="icon fa-solid fa-arrow-right"></i></p></a></li>
+    </ul>
+    <img class='pottery_index' src="{% static 'main/img/pottery.jpg' %}">
+    <div class="marquee">
+        <span data-scroll data-scroll-direction="horizontal" data-scroll-speed="3" style="--speed:28000ms">
+            <div class="marquee-1"><span>NEW COLLECTION  AUGUST &#8211; DECEMBER MOSCOW</span><span>NEW COLLECTION  AUGUST &#8211; DECEMBER MOSCOW</span><span>NEW COLLECTION  AUGUST &#8211; DECEMBER MOSCOW</span><span>NEW COLLECTION  AUGUST &#8211; DECEMBER MOSCOW</span><span>NEW COLLECTION  AUGUST &#8211; DECEMBER MOSCOW</span></div>
+            <div class="marquee-2"><span>NEW COLLECTION  AUGUST &#8211; DECEMBER MOSCOW</span><span>NEW COLLECTION  AUGUST &#8211; DECEMBER MOSCOW</span><span>NEW COLLECTION  AUGUST &#8211; DECEMBER MOSCOW</span><span>NEW COLLECTION  AUGUST &#8211; DECEMBER MOSCOW</span><span>NEW COLLECTION  AUGUST &#8211; DECEMBER MOSCOW</span></div>
+        </span>
+    </div>
+    <ul class="blocks_story">
+        <li class="rectangle_first"><p>OUR STORY</p></li>
+        <li class="rectangle_second">
+            <p>
+                It all begins with an idea.<br />
+                Plates are the mirror of the culture.<br />
+                The pattern gives a chance<br />
+                to get to know the culture.
+            </p>
+        </li>
+        <li class='rectangle_third'><img src="{% static 'main/img/story_index.jpg' %}"></li>
+    </ul>
+    <div class="border_rectangle"></div>
+    <footer>
+        <ul class="ending_homepage">
+            <li class="rectangle_first">
+                <p style="margin-top:25px">
+                    KERAMIK<br>
+                    123 Demo Street<br>
+                    Moscow, MOW<br>
+                    +7(999) 999-999
+                </p>
+            </li>
+            <li class="rectangle_second"><p>KERAMIK 2023</p></li>
+            <li class="rectangle_third"><p>RU</p></li>
+            <li class="rectangle_fourth"><p>EN</p></li>
+            <li class="rectangle_fifth"><p>INSTAGRAM</p></li>
+            <li class="rectangle_sixth"><p>FACEBOOK</p></li>
+        </ul>
+    </footer>
+{% endblock %}
